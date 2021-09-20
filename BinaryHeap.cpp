@@ -7,21 +7,23 @@ BinaryHeap::~BinaryHeap(){
 
 }
 void BinaryHeap::Insert(int a){
-    /*
-    size++;
-    int i=size-1;
-    array[i]=a;
-    while(i!=0 && array[(i-1)/2] > array[i] ){
-        int temp=array[i];
-        array[i]=array[(i-1)/2];
-        array[(i-1)/2]=temp;
-        i=(i-1)/2;
-    }
-    */
+    int aux;
+    array.push_back(a);
+    for (int i=0; i<size ; i++){
+		if(array.at(i)<array.at(i/2)){
+            aux=array[i];
+            array[i]=array[i/2];
+            array[i/2]=array[i];
+            i=0; 
+		}
+	}
+    size++;   
 }
 int  BinaryHeap::Extract(){
+
     return 0;
 }
+
 void BinaryHeap::show(){
     for (int i = 0; i < size; i++){
         cout<<"i:"<<i<<"array->"<<array.at(i)<<endl;
