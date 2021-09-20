@@ -8,15 +8,22 @@ int BinaryHeap::getSize(){return size;}
 void BinaryHeap::Insert(int a){
     int aux;
     array.push_back(a);
-    for (int i=0; i<size ; i++){
+    /*for (int i=0; i<size ; i++){
 		if(array.at(i)<array.at(i/2)){
             aux=array[i];
             array[i]=array[i/2];
             array[i/2]=array[i];
             i=0; 
 		}
-	}
-    size++;   
+	}*/
+    size++;
+    int i=size;
+    while(i!=0 && array.at(i)<array.at((i)/2)){
+            aux=array[i];
+            array[i]=array[(i)/2];
+            array[(i)/2]=aux;
+            i=(i)/2;
+    }   
 }
 bool BinaryHeap::Search(int a){
     for(int i=0; i<size; ++i)
@@ -25,7 +32,7 @@ bool BinaryHeap::Search(int a){
 }
 void BinaryHeap::Union(BinaryHeap b){
     int bsize = b.getSize();
-    for(int i=0; i<bsize; ++i)
+    for(int i=1; i<=bsize; ++i)
         this->Insert(b.array[i]);
 }
 void BinaryHeap::show(){
