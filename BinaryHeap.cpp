@@ -6,19 +6,16 @@ BinaryHeap::BinaryHeap(){
 BinaryHeap::~BinaryHeap(){
 
 }
+int BinaryHeap::getSize(){
+    return size;
+}
 void BinaryHeap::Insert(int a){
     /**
      * declaración de variables
     */
     int aux;
     array.push_back(a);
-    /**
-    * 
-    */
-    for (int i=1; i<size+1 ; i++){
-        /**
-        * 
-        */
+    for (int i=0; i<size ; i++){
 		if(array.at(i)<array.at(i/2)){
             /**
             * 
@@ -40,7 +37,7 @@ void BinaryHeap::Insert(int a){
     */
     size++;   
 }
-int  BinaryHeap::Extract(){
+int  BinaryHeap::Search(int a){
     /**
      * declaración de variables
     */
@@ -90,7 +87,6 @@ int  BinaryHeap::Extract(){
     */
     return aux;//devolver heap
 }
-
 void BinaryHeap::show(){
     /**
     * 
@@ -107,4 +103,8 @@ void BinaryHeap::show(){
     /**
     * 
     */
+}
+void Join(BinaryHeap b){
+
+    
 }

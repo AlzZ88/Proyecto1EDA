@@ -8,6 +8,8 @@ public:
     BinaryHeap();
     ~BinaryHeap();
     void Insert(int a);
-    int Extract();
+    bool Search(int a);
+    void Join(BinaryHeap b);
+    int getSize();
     void show();
 };

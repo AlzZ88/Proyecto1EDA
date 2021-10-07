@@ -10,13 +10,13 @@ int main(){
     /**
      * 
     */
-    /*for (int i = 0; i < 10; i++){
+    for (int i = 0; i < 10; i++){
         bh->Insert(i);
         cout<<"i:"<<i<<endl;
         /**
-     * 
-    */
-    }*/
+        * 
+        */
+    }
     /**
      * 
     */
@@ -26,7 +26,7 @@ int main(){
     */
     clock_t start = clock();
     for (int i = 0; i < rep; i++){
-        bh->Insert(i);
+        //bh->Insert(i);
         /**
         * 
         */
