@@ -1,135 +1,43 @@
 #include "BinaryHeap.h"
 BinaryHeap::BinaryHeap(){
-    /**
-    * 
-    */
     size=0;
     array.push_back(-1);
-    /**
-    * 
-    */
 }
-BinaryHeap::~BinaryHeap(){
-
-}
-int BinaryHeap::getSize(){
-    /**
-    * 
-    */
-    return size;
-}
+BinaryHeap::~BinaryHeap(){}
+int BinaryHeap::getSize(){return size;}
 void BinaryHeap::Insert(int a){
-    /**
-     * declaración de variables
-    */
     int aux;
     array.push_back(a);
-    for (int i=0; i<size ; i++){
+    /*for (int i=0; i<size ; i++){
 		if(array.at(i)<array.at(i/2)){
-            /**
-            * 
-            */
             aux=array[i];
             array[i]=array[i/2];
             array[i/2]=array[i];
-            i=0;
-            /**
-            * 
-            */ 
+            i=0; 
 		}
-        /**
-        *    
-        */
-	}
-    /**
-    * 
-    */
-    size++;   
-}
-int  BinaryHeap::Extract(int a){
-    /**
-     * declaración de variables
-    */
-    int aux=array[1];
-    int res=array[1];
-    /**
-     * mover raiz al final
-    */
-    for (int i = 1; i < size; i++){
-        /**
-        * 
-        */
-        aux=array[i];
-        array[i]=array[i/2];
-        array[i/2]=array[i];
-        /**
-        * 
-        */
-    }
-    /**
-     * borrar la raiz
-    */
-    array.pop_back();
-    size--;
-    /**
-    * comprobar que es heap
-    */
-    for (int i=0; i<size ; i++){
-        /**
-        * 
-        */
-		if(array.at(i)<array.at(i/2)){
-            /**
-            * 
-            */
+	}*/
+    size++;
+    int i=size;
+    while(i!=0 && array.at(i)<array.at((i)/2)){ //elemento insertado sube por el heap
             aux=array[i];
-            array[i]=array[i/2];
-            array[i/2]=array[i];
-            i=0;
-            /**
-            * 
-            */ 
-		}
-	}
-    /**
-    * 
-    */
-    return aux;//devolver heap
+            array[i]=array[(i)/2];
+            array[(i)/2]=aux;
+            i=(i)/2;
+    }   
 }
-bool Search(int a){
-    
-
-    
+bool BinaryHeap::Search(int a){ //linear search
+    for(int i=0; i<size; ++i)
+        if(array[i]==a)return true;
     return false;
 }
-void BinaryHeap::show(){
-    /**
-    * 
-    */
-    for (int i = 0; i < size; i++){
-        /**
-        * 
-        */
-        cout<<"i:"<<i<<"array->"<<array.at(i)<<endl;
-        /**
-        * 
-        */
-    }
-    /**
-    * 
-    */
+void BinaryHeap::Union(BinaryHeap b){//es la insercion de todo un BinaryHeap usando la funcion Insert
+    int bsize = b.getSize();
+    for(int i=1; i<=bsize; ++i)
+        this->Insert(b.array[i]);
 }
-void Join(BinaryHeap b){
-    /**
-    * 
-    */
-    for (int i = 0; i < b.getSize(); i++){
-        this->Insert(b.Extract());
-        /**
-        * 
-        */
+void BinaryHeap::show(){
+    for (int i = 0; i < size; i++){
+        cout<<"i:"<<i<<"array->"<<array.at(i)<<endl;
     }
-    /**
-    * 
-    */
+    
 }
