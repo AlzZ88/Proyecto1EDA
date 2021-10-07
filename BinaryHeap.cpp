@@ -1,12 +1,21 @@
 #include "BinaryHeap.h"
 BinaryHeap::BinaryHeap(){
+    /**
+    * 
+    */
     size=0;
     array.push_back(-1);
+    /**
+    * 
+    */
 }
 BinaryHeap::~BinaryHeap(){
 
 }
 int BinaryHeap::getSize(){
+    /**
+    * 
+    */
     return size;
 }
 void BinaryHeap::Insert(int a){
@@ -37,7 +46,7 @@ void BinaryHeap::Insert(int a){
     */
     size++;   
 }
-int  BinaryHeap::Search(int a){
+int  BinaryHeap::Extract(int a){
     /**
      * declaración de variables
     */
@@ -46,7 +55,7 @@ int  BinaryHeap::Search(int a){
     /**
      * mover raiz al final
     */
-    for (int i = 1; i < size+1; i++){
+    for (int i = 1; i < size; i++){
         /**
         * 
         */
@@ -65,7 +74,7 @@ int  BinaryHeap::Search(int a){
     /**
     * comprobar que es heap
     */
-    for (int i=0; i<size +1; i++){
+    for (int i=0; i<size ; i++){
         /**
         * 
         */
@@ -87,6 +96,12 @@ int  BinaryHeap::Search(int a){
     */
     return aux;//devolver heap
 }
+bool Search(int a){
+    
+
+    
+    return false;
+}
 void BinaryHeap::show(){
     /**
     * 
@@ -105,6 +120,16 @@ void BinaryHeap::show(){
     */
 }
 void Join(BinaryHeap b){
-
-    
+    /**
+    * 
+    */
+    for (int i = 0; i < b.getSize(); i++){
+        this->Insert(b.Extract());
+        /**
+        * 
+        */
+    }
+    /**
+    * 
+    */
 }
