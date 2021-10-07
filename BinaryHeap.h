@@ -9,8 +9,7 @@ public:
     ~BinaryHeap();
     void Insert(int a);
     bool Search(int a);
-    int Extract();
-    void Join(BinaryHeap b);
+    void Union(BinaryHeap b);
     int getSize();
     void show();
 };
